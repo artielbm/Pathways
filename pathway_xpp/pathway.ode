@@ -1,0 +1,204 @@
+
+###### System parameters
+par averG=0, GT=1440
+par Eg0=17, k=700, BV=5
+
+###### Define metabolic rate M and Insulin secretion rate ISR
+par Mmax=1, alpha_M=150, kM=2 
+M = Mmax*G^kM/(alpha_M^kM + G^kM)
+
+par alpha_ISR=1.2, kISR=2
+
+###### Build b dynamics  and Define Proliferation rate P(ISR) and Apoptosis A(M)
+par Pmax=4.55, kP=4, alpha_P=41.77
+P=Pmax*ISR^kP/(alpha_P^kP + ISR^kP)
+
+par Amax=3.11, alpha_A=0.44, kA=6, A_b=0.8
+A=Amax*M^kA/(alpha_A^kA + M^kA) + A_b
+par tau_b=7000
+
+###### Build gamma dynamics
+
+par G_bar=0.4, Gs=100, Gn=5, Gshft=0.2
+G_inf=G_bar/(1+ exp(-(G-Gs)/Gn)) - Gshft
+gamma_inf=G_inf
+par tau_g=2.14
+
+###### Build sigma dynamics
+par sigma_Gsh=35
+M_Gsh = Mmax*(G-sigma_Gsh)^kM/(alpha_M^kM + (G-sigma_Gsh)^kM)
+par  ISRI_bar=400,ISRI_s=0.1,ISRI_n=0.1, ISRI_k=1, sigma_b=5
+sigma_ISRI=ISRI_bar/(1+ ISRI_k*exp(-(ISR-ISRI_s)/ISRI_n))
+
+par MI_bar=1, MI_k=0.2, MI_s=0.2, MI_n=0.02
+sigma_MI= 1 - MI_bar/(1 + MI_k*exp(-(M_Gsh-MI_s)/MI_n))
+sigma_inf=sigma_MI*sigma_ISRI + sigma_b 
+par tau_sigma=249.9
+
+##### Enforced Insulin resistance parameters (Si)
+par tau_Si=250, tar_Si=0.8
+
+#### Turn on and off meal, OGTT, and IVGTT
+par meal=1, OGTT=0, IVGTT=0
+
+
+###### meal Flux
+par thyp=30, tpulse=0, period=360
+par nspike=3
+
+active=nspike*period
+par rest=360
+bperiod=active + rest 
+
+td = t-tpulse
+burstenv = (heav(mod(td,bperiod)) - heav(mod(t,bperiod) - active) )
+test_mod=mod(td,period)
+
+par mealbar=11.055, mhill_k=4, mh_alpha=40, ita=0.3, mu=-0.015
+mhill_fcn=mod(td,period)^mhill_k/(mh_alpha^mhill_k +mod(td,period)^mhill_k)
+
+
+meal_rate= meal*(mealbar*(mhill_fcn)^ita*exp(mu*(mod(td,period)))*burstenv)
+
+##### Glucose flux of OGTT  unit: [BW]kg, [V_bar]=dl/kg
+par BW=75, V_bar=1.569, OGTTbar=1, t1=15, t2=120, t3=240, a1=588.5, a2=353.1, a3=0 
+OGTT_flux0=(heav(t)-heav(t-t1))*t*a1/t1 + (heav(t-t1)-heav(t-t2))*((t-t2)*(a2-a1)/(t2-t1) +a2) + (heav(t-t2)-heav(t-t3))*(t-t3)*(a3-a2)/(t3-t2)
+
+OGTT_rate=OGTT*OGTTbar*OGTT_flux0/(BW*V_bar)
+
+
+####IVGTT
+par IVGTTbar=1471250, IVGTT_sh=0, IVGTT_a=1, IVGTT_b=-10, IVGTT_sp=0
+
+IVGTT_rate= IVGTT*IVGTTbar*(t-IVGTT_sh)^IVGTT_a*exp(IVGTT_b*(t-IVGTT_sp))/(BW*V_bar)
+
+### HGP ##
+
+par hepa_bar=15.443, hepa_k=0.27, hepa_b=-3.54277
+ hepa_max= hepa_bar/(hepa_k +Si) + hepa_b
+
+
+par HGP_b=0.104166
+par alpha_max=6, alpha_k=0.4, alpha_b=-0.5
+alpha_HGP= alpha_max/(alpha_k+ Si)  + alpha_b
+HGP = hepa_max/(alpha_HGP + hepaSi*I) + HGP_b
+
+par tar_hepaSi=1, tau_hepaSi=250
+
+
+
+# IC
+
+
+Gmean(0)=0
+G(0)=78.59159991393697  
+I(0)=5.637556083340107  
+b(0)=1533.917937647322 
+gamma(0)=-0.07663502752199285  
+sigma(0)=285.2397530136599  
+Si(0)=0.8 
+hepaSi(0)=1 
+N5(0)=60.24283727598375 
+N6(0)=443.394497666619 
+
+Gmean'=averG*G/GT 
+G' = HGP + OGTT_rate + IVGTT_rate + meal_rate - (Eg0 + Si*I)*G*t_min 
+I' = t_min*(b*ISR/BV - k*I)
+b' = t_min*(P-A)*b/tau_b 
+gamma'=t_min*(gamma_inf - gamma)/tau_g
+sigma'=t_min*(sigma_inf - sigma)/tau_sigma 
+Si'=t_min*(-Si + tar_Si)/tau_Si
+hepaSi'=t_min*(-hepaSi+ tar_hepaSi)/tau_hepaSi
+#### Glucose Amplifying factor
+par GF_bar=0.015625, kGF=16, alpha_GF=260, shGF=-89, GF_b=0.00625
+
+GF=(GF_bar*(G-shGF)^kGF/(alpha_GF^kGF + (G-shGF)^kGF)) + GF_b
+
+#### Define a new Ca2+ as a function of M for sulfonylurea simulation As of March 19, 2105.
+
+par ca_bar=2, kca=4, alpha_ca=0.62, ca_b=0.07
+ci=ca_bar*(M + gamma)^kca/(alpha_ca^kca + (M + gamma)^kca) + ca_b
+
+
+### Define Microdoman Ca2+
+par cmd_factor=150, cmd_b=0.0635, cik=4, cialpha=1
+Cmd=cmd_factor*ci^cik/(cialpha^cik+ci^cik) + cmd_b
+
+#### Define exocytosis
+par k1=20, km1=100, r1=0.6, rm1=1, r20=0.006, rm2=0.001
+par r30=1.205, rm3=0.0001, u1=2000, u2=3, u3=0.02
+par Kp2=2.3
+
+
+r2 = r20*Ci/(Ci + Kp2)
+
+par ts=60, t_min=0.00069444
+
+
+
+r3 = sigma*GF*r30*Ci/(Ci + Kp2)
+
+
+##### setting all dynamic varibales of exo to be steady states to simplify exo model.
+
+N1_C=km1/(3*k1*cmd + rm1)
+N1_D=r1/(3*k1*cmd + rm1)
+
+N2_E=3*k1*cmd/(2*k1*cmd + km1)
+N2_F=2*km1/(2*k1*cmd + km1)
+
+N3_L=2*k1*cmd/(2*km1+k1*cmd)
+N3_N=3*km1/(2*km1+k1*cmd)
+
+###### fast-slow analysis by considering N6 and N5 slow and all other fast.
+CN4=(k1*cmd/(3*km1 +u1))
+CN3=N3_L/(1-N3_N*CN4)
+CN2=N2_E/(1-N2_F*CN3)
+CN1=N1_D/(1-N1_C*CN2)
+
+N5' = ts*(rm1*CN1*N5 - (r1 + rm2)*N5 + r2*N6)
+N6' = ts*(r3 + rm2*N5 - (rm3 + r2)*N6)
+
+N1=CN1*N5
+N2=CN2*N1
+N3=CN3*N2
+N4=CN4*N3
+NF=u1*N4/u2
+NR=(u2/u3)*NF
+
+
+ISR=ts*9*(u3*NR)
+
+aux plot_taub=tau_b
+aux prol_r=P/tau_b
+aux apop_r=A/tau_b
+aux plot_M=M
+aux plot_P=P
+aux plot_A=A
+aux plot_ISR=ISR
+aux plot_Si=Si
+aux plot_sig=sigma
+
+
+aux mealrate=meal_rate
+
+aux ogttrate=ogtt_rate
+aux hepa_supp=HGP
+aux total_gluf=meal_rate + HGP
+
+aux testmod=test_mod
+aux benv=burstenv
+
+aux plot_ci=ci
+aux plot_Cmd=Cmd
+
+aux thour=t/60
+aux tday=t/1440
+
+@ meth=cvode, toler=1.0e-10, atoler=1.0e-10, dt=10, total=5000000
+@ maxstor=2000000,bounds=100000000000, xp=t, yp=G
+@ xlo=0, xhi=5000000, ylo=100, yhi=180
+@ bell=0
+aux thour=t*24
+aux tmin=t*24*60
+done
