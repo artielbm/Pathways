@@ -12,10 +12,14 @@ Matlab equation definition file for all figures:
 Matlab run files for individual figures:
 Figures 1 - 4. Matlab will generate Fig1 - Fig6, corresponding to Panels A - F (a counter will tick off 365 iterations):
 
-Figure 1
+Figure 1: [FIG1.m](./pathway_matlab/FIG1.m)
+
 Figure 2
+
 Figure 3
+
 Figure 4
+
 Figures 6, 7. Matlab will generate Panels A, B (IGT first case):
 
 Figure 6
