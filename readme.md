@@ -7,7 +7,7 @@ J. Ha and A. Sherman. 2019. Type 2 Diabetes: One Disease, Many Pathways
 doi: https://doi.org/10.1101/648816.
 
 Matlab equation definition file for all figures:
-(pathway.m)[pathway_matlab/pathway.m]
+[pathway.m](./pathway_matlab/pathway.m)
 
 Matlab run files for individual figures:
 Figures 1 - 4. Matlab will generate Fig1 - Fig6, corresponding to Panels A - F (a counter will tick off 365 iterations):
