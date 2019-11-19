@@ -37,6 +37,9 @@ pathway.ode: [pathway.ode](./pathway_xpp/pathway.ode)
 Figures 1 - 4. xpp will plot the longitudinal response of glucose to meals each day. The envelope of the plot will show the fasting and peak postprandial values. Use the xpp menus to display the other variables:
 
 FIG1.set (IGT first pathway): [FIG1.set](./pathway_xpp/FIG1.set)
+
 FIG2.set (Sustained IGT): [FIG2.set](./pathway_xpp/FIG2.set)
+
 FIG3.set (IFG first pathway IGT): [FIG3.set](./pathway_xpp/FIG3.set)
+
 FIG4.set (IGT without CGI): [FIG4.set](./pathway_xpp/FIG4.set)
