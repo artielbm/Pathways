@@ -375,3 +375,54 @@ axis ([0 5 0 150])
 
 %%% end FIG 2-D
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+tsigma=subplot(3,2,5);
+
+plot(permanent_IGT_t./(365*1440),permanent_IGT_sigma,'k', 'linewidth',lw);
+%hold('on')
+
+
+
+xlabel('time (year)','fontsize', fs, 'fontname',fn);
+ylabel('{\sigma}','fontsize', fs, 'fontname',fn);
+
+
+%% 10% of the length of y axis
+
+text(0,1.1,'E','fontsize',fpan,'fontweight','bold');
+axis ([0 5 0 1])
+
+
+%% 10%  of the length of y axis
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+tb=subplot(3,2,6);
+
+plot(permanent_IGT_t./(365*1440),permanent_IGT_b,'k', 'linewidth',lw);
+%hold('on')
+
+
+
+xlabel('time (year)','fontsize', fs, 'fontname',fn);
+ylabel('{\beta} (mg)','fontsize', fs, 'fontname',fn);
+
+
+%% 10% of the length of y axis
+
+text(0,3300,'F','fontsize',fpan,'fontweight','bold');
+axis ([0 5 0 3000])
+
+
+%% 10%  of the length of y axis
+
+
+
+
+

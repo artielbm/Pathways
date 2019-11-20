@@ -249,38 +249,23 @@ plot(NGT_IGT_CGI_T2D_t./(365*1440),NGT_IGT_CGI_T2D_2hG,'k', 'linewidth',lw);
 
 tIGT=1;
 tCGI=1.92;
-tT2D=3.15;
+tT2D=3.00;
 
 th_IGT=140;
 th_CGI=100;
 th_T2D=200;
 
-%plot([0 5],[140 140],'k','linewidth',lw);
-%plot([0 5],[100 100],'b','linewidth',lw2);
-%plot([0 5],[200 200],'r','linewidth',lw2);
-
-%plot([tIGT tIGT],[0 th_IGT],'k','linewidth',lw);
-%plot([tCGI tCGI],[0 th_CGI],'b','linewidth',lw2);
-%plot([tT2D tT2D],[0 th_T2D],'r','linewidth',lw2);
-
-
-
-
-
-
-%plot([0 5],[140 140],'k:','linewidth',lw);
-%plot([0 5],[100 100],'k--','linewidth',lw2);
-%plot([0 5],[200 200],'k-.','linewidth',lw2);
-
 plot([tIGT tIGT],[0 th_IGT],'k','linewidth',lw3);
 plot([tCGI tCGI],[0 th_CGI],'k','linewidth',lw3);
 plot([tT2D tT2D],[0 th_T2D],'k','linewidth',lw3);
 
+%%% longitudinal location at t=0 (NGT1), t=1*319680 (NGT2), t=2*319680 (IGT), t=4*319680 (CGI), t=7*319680
+
 plot(0,0,'.k','MarkerSize',15);
 plot(0.685,0,'.k','MarkerSize',15);
-plot(1.82, 0, '.k', 'MarkerSize',15);
-plot(3.04, 0, '.k', 'MarkerSize',15);
-plot(4.25, 0, '.k', 'MarkerSize',15);
+plot(1.216, 0, '.k', 'MarkerSize',15);
+plot(2.432, 0, '.k', 'MarkerSize',15);
+plot(4.256, 0, '.k', 'MarkerSize',15);
 
 
 %hold('on')

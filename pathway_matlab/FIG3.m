@@ -231,7 +231,7 @@ text(0,1.65,'B','fontsize',fpan,'fontweight','bold');
 axis ([0 5 0 1.5])
 
 
-%% 10%  of the length of y axis
+%%  10%  of the length of y axis
 
 
 
@@ -246,7 +246,7 @@ plot(NGT_IFG_CGI_T2D_t./(365*1440),NGT_IFG_CGI_T2D_2hG,'k', 'linewidth',lw);
 
 
 %tIGT=1.23;
-tIFG=1.3;
+tIFG=1.1;
 tCGI=2.3;
 tT2D=3.75;
 
@@ -256,33 +256,16 @@ th_IFG=100;
 th_CGI=140;
 th_T2D=125;
 
-%plot([0 5],[140 140],'k','linewidth',lw);
-%plot([0 5],[100 100],'b','linewidth',lw2);
-%plot([0 5],[200 200],'r','linewidth',lw2);
 
-%plot([tIGT tIGT],[0 th_IGT],'k','linewidth',lw);
-%plot([tCGI tCGI],[0 th_CGI],'b','linewidth',lw2);
-%plot([tT2D tT2D],[0 th_T2D],'r','linewidth',lw2);
-
-
-
-
-
-
-%plot([0 5],[140 140],'k:','linewidth',lw);
-%plot([0 5],[100 100],'k--','linewidth',lw2);
-%plot([0 5],[200 200],'k-.','linewidth',lw2);
-
-%plot([tIGT tIGT],[0 th_IGT],'k','linewidth',lw3);
 plot([tIFG tIFG],[0 th_IFG],'k','linewidth',lw3);
 plot([tCGI tCGI],[0 th_CGI],'k','linewidth',lw3);
 plot([tT2D tT2D],[0 th_T2D],'k','linewidth',lw3);
 
 plot(0,0,'.k','MarkerSize',15);
 plot(0.685,0,'.k','MarkerSize',15);
-plot(2.1, 0, '.k', 'MarkerSize',15);
-plot(3.64, 0, '.k', 'MarkerSize',15);
-plot(4.86, 0, '.k', 'MarkerSize',15);
+plot(1.216, 0, '.k', 'MarkerSize',15);
+plot(2.432, 0, '.k', 'MarkerSize',15);
+plot(4.256, 0, '.k', 'MarkerSize',15);
 
 
 %hold('on')

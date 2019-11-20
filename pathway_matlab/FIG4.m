@@ -272,10 +272,10 @@ plot([tIGT tIGT],[0 th_IGT],'k','linewidth',lw3);
 %plot([tCGI tCGI],[0 th_CGI],'k','linewidth',lw3);
 plot([tT2D tT2D],[0 th_T2D],'k','linewidth',lw3);
 
-plot(0,0,'.k','MarkerSize',15);
-plot(1.1, 0, '.k', 'MarkerSize',15);
+%plot(0,0,'.k','MarkerSize',15);
+%plot(1.1, 0, '.k', 'MarkerSize',15);
 %plot(2.5, 0, '.k', 'MarkerSize',15);
-plot(3, 0, '.k', 'MarkerSize',15);
+%plot(3, 0, '.k', 'MarkerSize',15);
 
 
 %hold('on')
