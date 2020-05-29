@@ -6,9 +6,13 @@ This is supplementary material for:
 J. Ha and A. Sherman. 2019. Type 2 Diabetes: One Disease, Many Pathways
 doi: https://doi.org/10.1101/648816.
 
-### Matlab equation definition file for all figures:
+### Matlab equation definition file for all figures except Figs. 9 and S15:
 
 [pathway.m](./pathway_matlab/pathway.m)
+
+[pathway_FIG9.m](./pathway_matlab/pathway_FIG9.m)
+
+[pathway_FIGS15.m](./pathway_matlab/pathway_FIGS15.m)
 
 ### Matlab run files for individual figures:
 
@@ -27,6 +31,24 @@ Figure 4: [FIG4.m](./pathway_matlab/FIG4.m)
 Figure 6: [FIG6.m](./pathway_matlab/FIG6.m)
 
 Figure 7: [FIG7.m](./pathway_matlab/FIG7.m)
+
+#### Supplemental Figures
+
+FigS8: [FIGS8.m](./pathway_matlab/FIGS8.m)
+
+FigS9: [FIGS9.m](./pathway_matlab/FIGS9.m)
+
+FigS10: [FIGS10.m](./pathway_matlab/FIGS10.m)
+
+FigS11: [FIGS11.m](./pathway_matlab/FIGS11.m)
+
+FigS12: [FIGS12.m](./pathway_matlab/FIGS12.m)
+
+FigS13: [FIGS13.m](./pathway_matlab/FIGS13.m)
+
+FigS14: [FIGS14.m](./pathway_matlab/FIGS14.m)
+
+FigS14: [FIGS15.m](./pathway_matlab/FIGS15.m)
 
 ### XPP source file for all figures:
 
