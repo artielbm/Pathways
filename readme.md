@@ -78,7 +78,7 @@ FIG9_no_cl_no_FE.set (default IGT-first pathway; use pathway_FIG9.ode): [FIG9_no
 
 FIG9_modest_cl_FE.set (reduced clearance delays T2D; use pathway_FIG9.ode): [FIG9_modest_cl_FE.set](./pathway_xpp/FIG9_modest_cl_FE.set)
 
-FIG9_balanced_cl_FE.set (reduced clearance and induced resistance balanced; use pathway_FIG9.ode): [FIG9_balanced_cl_FE.set](./pathway_xpp/FIG9_balanced_cl_FE.set)
+FIG9_balanced_cl_FE.set (reduced clearance and induced resistance cancel out; use pathway_FIG9.ode): [FIG9_balanced_cl_FE.set](./pathway_xpp/FIG9_balanced_cl_FE.set)
 
 FIG9_extreme_cl_FE.set (reduced clearance and severe induced resistance accelerates T2D; use pathway_FIG9.ode): [FIG9_extreme_cl_FE.set](./pathway_xpp/FIG9_extreme_cl_FE.set)
 
