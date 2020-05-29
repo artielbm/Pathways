@@ -74,13 +74,13 @@ FIG3.set (IFG-first pathway IGT): [FIG3.set](./pathway_xpp/FIG3.set)
 
 FIG4.set (IGT without CGI): [FIG4.set](./pathway_xpp/FIG4.set)
 
-FIG9_no_cl_no_FE.set (default IGT-first pathway; use pathway_FIG9.ode):
+FIG9_no_cl_no_FE.set (default IGT-first pathway; use pathway_FIG9.ode): [FIG9_no_cl_no_FE.set](./pathway_xpp/FIG9_no_cl_no_FE.set)
 
-FIG9_modest_cl_FE.set (reduced clearance delays T2D; use pathway_FIG9.ode):
+FIG9_modest_cl_FE.set (reduced clearance delays T2D; use pathway_FIG9.ode): [FIG9_modest_cl_FE.set](./pathway_xpp/FIG9_modest_cl_FE.set)
 
-FIG9_balanced_cl_FE.set (reduced clearance and induced resistance balanced; use pathway_FIG9.ode):
+FIG9_balanced_cl_FE.set (reduced clearance and induced resistance balanced; use pathway_FIG9.ode): [FIG9_balanced_cl_FE.set](./pathway_xpp/FIG9_balanced_cl_FE.set)
 
-FIG9_extreme_cl_FE.set (reduced clearance and severe induced resistance accelerates T2D; use pathway_FIG9.ode):
+FIG9_extreme_cl_FE.set (reduced clearance and severe induced resistance accelerates T2D; use pathway_FIG9.ode): [FIG9_extreme_cl_FE.set](./pathway_xpp/FIG9_extreme_cl_FE.set)
 
 
 ##### Supplemental Figures
@@ -99,6 +99,6 @@ FIGS12_slow_si.set (protected from T2D): [FIGS12_slow_si.set](./pathway_xpp/FIGS
 
 FIGS13.set (IFG-first pathway driven by GOF KATP defect): [FIGS13.set](./pathway_xpp/FIGS13.set)
 
-FIGS14.set: (IFG-first pathway driven by impaired vesicle trafficking -- small RRP): [FIGS14.set](./pathway_xpp/FIGS14.set)
+FIGS14.set: (IFG-first pathway driven by impaired vesicle trafficking - small RRP): [FIGS14.set](./pathway_xpp/FIGS14.set)
 
 FIGS15.set (impaired incretin signaling accelerates T2D): [FIGS15.set](./pathway_xpp/FIGS15.set)
