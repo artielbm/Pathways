@@ -1,11 +1,11 @@
-## Set file for pathway.ode on Thu Nov 14 17:01:06 2019
+## Set file for pathway.ode on Thu Feb  6 15:03:18 2020
 31   Number of equations and auxiliaries
 99   Number of parameters
 # Numerical stuff
 1    nout
 40    nullcline mesh
 10   CVode
-2628000  total
+5256000  total
 10  DeltaT
 0  T0
 0  Transient
@@ -27,8 +27,8 @@
 1   Poincare sign
 0   Stop on Section
 0   Delay flag
-2628000  Current time
-2628000  Last Time
+2750800  Current time
+2750800  Last Time
 0   MyStart
 1   INFLAG
 # Delays
@@ -65,16 +65,16 @@
 60.24283727598375  N5
 443.394497666619  N6
 # Ending  ICs
-4.660424667705355e-20  GMEAN
-161.6961713322142  G
-9.907062012138645  I
-1678.423855147384  B
-0.1999993638807465  GAMMA
-0.02588155791093938  SIGMA
-0.1004728771426378  SI
-0.8501013308162746  HEPASI
-0.06377023127158364  N5
-16.85139982968097  N6
+3.066798000949424e-20  GMEAN
+176.2639096829387  G
+176.3883708822515  I
+2779.744178497239  B
+0.1259415112723995  GAMMA
+0.3042483902628056  SIGMA
+0.100336206146444  SI
+0.3503121914217132  HEPASI
+0.7466550109036043  N5
+204.9107228975925  N6
 # Parameters
 0  averG
 1440  GT
@@ -101,7 +101,7 @@
 0.2  Gshft
 3081.6  tau_g
 35  sigma_Gsh
-0.5259  ISRI_bar
+1.2  ISRI_bar
 0.1  ISRI_s
 0.1  ISRI_n
 1  ISRI_k
@@ -147,7 +147,7 @@
 6  alpha_max
 0.4  alpha_k
 -0.5  alpha_b
-0.85  tar_hepaSi
+0.3  tar_hepaSi
 360000  tau_hepaSi
 4.4567  GF_bar
 16  kGF
@@ -244,16 +244,16 @@
 0   Type
 1  color scale
 0   minscale
-2628000   xmax
+5256000   xmax
 0   xmin
-323.4806823730469   ymax
-77.77919006347656   ymin
+417.0097961425781   ymax
+77.79001617431641   ymin
 12   zmax
 -12   zmin
-1314000   
-7.610350076103501e-07   
-200.6299362182617   
-0.00813995870029194   
+2628000   
+3.80517503805175e-07   
+247.3999061584473   
+0.005895882605038908   
 0   
 0.08333333333333333   
 45   Theta
@@ -262,11 +262,11 @@
 0    yshft
 0    zshft
 0   xlo
-77.77919006347656   ylo
+77.79001617431641   ylo
 0   
 100   
-2628000   xhi
-323.4806823730469   yhi
+5256000   xhi
+417.0097961425781   yhi
 5000000   
 180   
 # Transpose variables etc

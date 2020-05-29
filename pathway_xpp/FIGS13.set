@@ -1,4 +1,4 @@
-## Set file for pathway.ode on Thu Nov 14 17:01:06 2019
+## Set file for pathway.ode on Thu Feb  6 12:36:54 2020
 31   Number of equations and auxiliaries
 99   Number of parameters
 # Numerical stuff
@@ -65,16 +65,16 @@
 60.24283727598375  N5
 443.394497666619  N6
 # Ending  ICs
-4.660424667705355e-20  GMEAN
-161.6961713322142  G
-9.907062012138645  I
-1678.423855147384  B
-0.1999993638807465  GAMMA
-0.02588155791093938  SIGMA
-0.1004728771426378  SI
-0.8501013308162746  HEPASI
-0.06377023127158364  N5
-16.85139982968097  N6
+2.305013563628349e-20  GMEAN
+128.6310320239572  G
+4.093186218344345  I
+1215.864173034099  B
+0.1908061177230019  GAMMA
+0.02996681229854649  SIGMA
+0.7000675538774983  SI
+0.6002702155100919  HEPASI
+0.0363726214410947  N5
+11.60345821708062  N6
 # Parameters
 0  averG
 1440  GT
@@ -96,7 +96,7 @@
 0.8  A_b
 10080000  tau_b
 0.4  G_bar
-100  Gs
+115  Gs
 5  Gn
 0.2  Gshft
 3081.6  tau_g
@@ -112,7 +112,7 @@
 0.02  MI_n
 359856  tau_sigma
 360000  tau_Si
-0.1  tar_Si
+0.7  tar_Si
 1  meal
 0  OGTT
 0  IVGTT
@@ -147,7 +147,7 @@
 6  alpha_max
 0.4  alpha_k
 -0.5  alpha_b
-0.85  tar_hepaSi
+0.6  tar_hepaSi
 360000  tau_hepaSi
 4.4567  GF_bar
 16  kGF
@@ -246,14 +246,14 @@
 0   minscale
 2628000   xmax
 0   xmin
-323.4806823730469   ymax
-77.77919006347656   ymin
+282.556   ymax
+60   ymin
 12   zmax
 -12   zmin
 1314000   
 7.610350076103501e-07   
-200.6299362182617   
-0.00813995870029194   
+171.278   
+0.008986502273585075   
 0   
 0.08333333333333333   
 45   Theta
@@ -262,11 +262,11 @@
 0    yshft
 0    zshft
 0   xlo
-77.77919006347656   ylo
+60   ylo
 0   
 100   
 2628000   xhi
-323.4806823730469   yhi
+282.556   yhi
 5000000   
 180   
 # Transpose variables etc

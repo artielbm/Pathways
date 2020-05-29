@@ -3,9 +3,22 @@
 ### So, Si values of simulation should be mutiplied by (10000/1440) = 6.994 to match the unit of Si in Figs 1-4.
 
 
+par tau_FE=2880, hyperIbar=0.5, hyperIk=4, alpha_hI=40, hyperI_sh=5, hyperI_b=0.5
+
+hyperI_Si=hyperIbar*(1-(I-hyperI_sh)^hyperIk/(alpha_hI^hyperIk+(I-hyperI_sh)^hyperIk)) + hyperI_b
+
+
+#par k_min=540
+#k=((700-k_min)/(0.8-0.01))*(Si-0.8) + 700 
+## default par k=0.4861
+par tar_k=0.37499, tau_k=360000
+
+
+
 ###### System parameters
 par averG=0, GT=1440, unit_con=0.0006944
-par Eg0=0.0118, k=0.4861, BV=7200
+par Eg0=0.0118, BV=7200
+
 
 ###### Define metabolic rate M and Insulin secretion rate ISR
 par Mmax=1, alpha_M=150, kM=2 
@@ -40,7 +53,7 @@ sigma_inf=sigma_MI*sigma_ISRI + sigma_b
 par tau_sigma=359856
 
 ##### Enforced Insulin resistance parameters (Si)
-par tau_Si=360000, tar_Si=0.8
+par tau_Si0=360000, tar_Si0=0.8
 
 #### Turn on and off meal, OGTT, and IVGTT
 par meal=1, OGTT=0, IVGTT=0
@@ -100,7 +113,9 @@ I(0)=5.637556083340107
 b(0)=1533.917937647322 
 gamma(0)=-0.07663502752199285  
 sigma(0)=1
-Si(0)=0.8 
+Si0(0)=0.8 
+FE(0)=1
+k(0)=0.4861
 hepaSi(0)=1 
 N5(0)=60.24283727598375 
 N6(0)=443.394497666619 
@@ -111,8 +126,15 @@ I' = b*ISR/BV - k*I
 b' = (P-A)*b/tau_b 
 gamma'=(gamma_inf - gamma)/tau_g
 sigma'=(sigma_inf - sigma)/tau_sigma 
-Si'=(-Si + tar_Si)/tau_Si
+Si0'=(-Si0 + tar_Si0)/tau_Si0
 hepaSi'=(-hepaSi+ tar_hepaSi)/tau_hepaSi
+FE'=(-FE + hyperI_Si)/tau_FE
+
+k'=(-k + tar_k)/tau_k
+
+Si=Si0*FE
+
+
 #### Glucose Amplifying factor
 par GF_bar=4.4567, kGF=16, alpha_GF=260, shGF=-89, GF_b=1.7826
 
@@ -199,9 +221,9 @@ aux plot_Cmd=Cmd
 aux thour=t/60
 aux tday=t/1440
 
-@ meth=cvode, toler=1.0e-10, atoler=1.0e-10, dt=10, total=5000000
+@ meth=cvode, toler=1.0e-10, atoler=1.0e-10, dt=10, total=2628000
 @ maxstor=2000000,bounds=100000000000, xp=t, yp=G
-@ xlo=0, xhi=5000000, ylo=100, yhi=180
+@ xlo=0, xhi=2628000, ylo=80, yhi=250
 @ bell=0
 aux thour=t*24
 aux tmin=t*24*60

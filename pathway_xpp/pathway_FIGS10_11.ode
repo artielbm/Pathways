@@ -38,7 +38,7 @@ par MI_bar=1, MI_k=0.2, MI_s=0.2, MI_n=0.02
 sigma_MI= 1 - MI_bar/(1 + MI_k*exp(-(M_Gsh-MI_s)/MI_n))
 sigma_inf=sigma_MI*sigma_ISRI + sigma_b 
 par tau_sigma=359856
-
+Feb_4_AJP
 ##### Enforced Insulin resistance parameters (Si)
 par tau_Si=360000, tar_Si=0.8
 
@@ -172,6 +172,14 @@ NR=(u2/u3)*NF
 
 
 ISR=ts*9*(u3*NR)
+
+
+
+aux Eg0_D=Eg0*G
+
+aux Si_D=unit_con*Si*I*G
+aux total_D = (Eg0 + unit_con*Si*I)*G
+
 
 aux plot_taub=tau_b
 aux prol_r=P/tau_b
