@@ -3,8 +3,7 @@
 
 This is supplementary material for:
 
-J. Ha and A. Sherman. 2019. Type 2 Diabetes: One Disease, Many Pathways
-doi: https://doi.org/10.1101/648816.
+J. Ha and A. Sherman. 2019. Type 2 Diabetes: One Disease, Many Pathways [[PubMed]](https://pubmed.ncbi.nlm.nih.gov/32663101/).
 
 ### Matlab equation definition file for all figures except Figs. 9 and S15:
 
